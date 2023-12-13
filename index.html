@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+    <title>Document</title>
+</head>
+<body>
+    <!-- <button type="button" onclick="crearTabla()" class="btn btn-primary">Haz Click Aqui¡</button> -->
+    <div class="container">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <li class="page-item">
+                <button class="page-link" id="atras">Anterior</button>
+              </li>
+
+              <div id="items" class="d-flex"></div>
+
+              <li class="page-item">
+                
+                    <button class="page-link" id="siguiente">Siguiente</button>
+              </li>
+
+            </ul>
+          </nav>
+
+          <div class="container t-cta">
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Correo</th>
+                    <th scope="col">N° Codigo</th>
+                  </tr>
+                </thead>
+                <tbody id="datos">
+    
+                </tbody>
+              </table>
+        </div>
+    </div>
+
+    
+
+
+
+    <script src="paginacion.js"></script>
+</body>
+</html>
