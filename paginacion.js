@@ -221,18 +221,49 @@ async function crearTabla() {
     }
     cargarProductos()
 
-    function avanzarPagina(paginaActiva){
-       
+   
+    
+    function avanzarPagina(){
+        desde = limite * paginaActiva;
         paginaActiva = paginaActiva + 1;
 
-        console.log("aqui esta activando la funcion avanzar" + paginaActiva)
+        console.log("arreglo va desde" + desde, " hasta ", limite * paginaActiva )
+        
+        if(desde < resp.length){
+            arreglo = resp.slice(desde, limite * paginaActiva)
+            console.log("aqui se esta imprimiendo", arreglo, "limite ", limite)
             cargarProductos()
+        }
+        
+    }
+
+    let botonActivo = document.querySelector("#atras");
+    botonActivo.disabled = false;
+
+    function retrocederPagina(){
+        desde = limite * paginaActiva;
+        paginaActiva = paginaActiva - 1;
+       
+
+        console.log("arreglo va desde" + desde, " hasta ", limite * paginaActiva )
+        
+        if(desde < resp.length){
+            arreglo = resp.slice(limite * paginaActiva, desde )
+            console.log("aqui se esta imprimiendo", arreglo, "limite ", limite)
+            cargarProductos()
+        }
+        if(paginaActiva === 0 ){
+            botonActivo = true;
+            console.log("ya llego al final")
+        }
+        cargarProductos()
         
     }
     
     
 
-    // document.querySelector('#atras').addEventListener("click", retrocederPagina);
+    document.querySelector('#atras').addEventListener("click", retrocederPagina);
+    
     document.querySelector('#siguiente').addEventListener("click", avanzarPagina);
 
     // botonAtrasDOM.addEventListener("click", retrocederPagina);
