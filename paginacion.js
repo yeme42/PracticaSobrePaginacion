@@ -253,7 +253,7 @@ async function crearTabla() {
             cargarProductos()
         }
         if(paginaActiva === 0 ){
-            botonActivo = true;
+            botonActivo.disabled = true;
             console.log("ya llego al final")
         }
         cargarProductos()
