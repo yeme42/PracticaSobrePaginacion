@@ -220,8 +220,10 @@ async function crearTabla() {
     }
     }
     cargarProductos()
-
-   
+    let botonSiguiente =  document.querySelector("#siguiente")
+    let botonActivo = document.querySelector("#atras");
+    botonActivo.disabled = false;
+    botonSiguiente.disabled = false
     
     function avanzarPagina(){
         desde = limite * paginaActiva;
@@ -232,13 +234,18 @@ async function crearTabla() {
         if(desde < resp.length){
             arreglo = resp.slice(desde, limite * paginaActiva)
             console.log("aqui se esta imprimiendo", arreglo, "limite ", limite)
+            botonActivo.disabled = false;
             cargarProductos()
         }
+
+        if(desde === resp.length / limite){
+            botonSiguiente.disabled = true;
+            console.log("ya llego al final")
+        }
+        cargarProductos()
+        
         
     }
-
-    let botonActivo = document.querySelector("#atras");
-    botonActivo.disabled = false;
 
     function retrocederPagina(){
         desde = limite * paginaActiva;
